@@ -13,4 +13,4 @@ accelerate launch \
         --per_device_train_batch_size 4 \
         --per_device_eval_batch_size 4 \
         --output_dir "models/LLaDA-MoE-7B-A1B-Base/alpaca" \
-        --save_only_model False \
+        --save_only_model True \

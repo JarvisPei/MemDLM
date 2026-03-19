@@ -122,24 +122,33 @@ bash examples/llada/eval_run.sh \
 
 ### Evaluation with inference-time Parametric Memory
 
-Re-enable the inner loop at inference time to adapt on the prompt via `--extra_model_args`:
+Scripts in `examples/llada/mem/` and `examples/llada21/mem/` have memory enabled by default with the paper's hyperparameters:
 
 ```bash
-# RULER (LLaDA)
-bash examples/llada/eval_ruler.sh \
+# BABILong with memory (LLaDA)
+bash examples/llada/mem/eval_run.sh \
     --model_name_or_path YOUR_MODEL_PATH \
     --adapter_model_name_or_path YOUR_ADAPTER_PATH \
-    --num_gpu 4 \
-    --extra_model_args "mem_enabled=True"
-```
+    --num_gpu 4
 
-```bash
-# RULER (LLaDA2.1)
-bash examples/llada21/eval_ruler.sh \
+# RULER with memory (LLaDA)
+bash examples/llada/mem/eval_ruler.sh \
+    --model_name_or_path YOUR_MODEL_PATH \
+    --adapter_model_name_or_path YOUR_ADAPTER_PATH \
+    --num_gpu 4
+
+# RULER with memory (LLaDA2.1)
+bash examples/llada21/mem/eval_ruler.sh \
     --model_name_or_path ML-GSAI/LLaDA2.1-mini \
     --adapter_model_name_or_path YOUR_ADAPTER_PATH \
-    --num_gpu 4 \
-    --extra_model_args "mem_enabled=True"
+    --num_gpu 4
+```
+
+You can also enable memory on the base scripts via `--extra_model_args`:
+
+```bash
+bash examples/llada/eval_ruler.sh \
+    --extra_model_args "mem_enabled=True,mem_num_inner_steps=2,mem_inner_rank=32"
 ```
 
 
@@ -185,7 +194,9 @@ memdlm/
 
 examples/
     llada/                 # LLaDA training & evaluation scripts
+        mem/               # Evaluation with memory enabled (default args)
     llada21/               # LLaDA2.1 training & evaluation scripts
+        mem/               # Evaluation with memory enabled (default args)
 ```
 
 

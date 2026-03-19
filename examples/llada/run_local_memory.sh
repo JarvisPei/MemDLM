@@ -13,7 +13,7 @@ accelerate launch \
     --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 2 \
     --output_dir "models/LLaDA-MoE-7B-A1B-Base/longalpaca-memory" \
-    --save_only_model False \
+    --save_only_model True \
     --mem_enabled True \
     --mem_masking_strategy "pmc" \
     --mem_num_inner_steps 2 \
