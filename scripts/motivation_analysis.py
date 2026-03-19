@@ -79,6 +79,7 @@ import numpy as np
 from tqdm import tqdm
 
 import dllm
+import memdlm.models
 from dllm.core.schedulers import LinearAlphaScheduler
 from memdlm.memory import ParametricMemory, MemoryConfig
 
@@ -159,7 +160,7 @@ def _load_single_model(model_name_or_path, adapter_path, base_override, args, ac
             attn_implementation=args.attn_implementation,
             lora=False,
         )
-        model = dllm.utils.get_model(model_args=model_args)
+        model = memdlm.models.get_model(model_args=model_args)
         model = PeftModel.from_pretrained(model, adapter_path)
         tokenizer_model_id = base_id
     else:
@@ -170,7 +171,7 @@ def _load_single_model(model_name_or_path, adapter_path, base_override, args, ac
             attn_implementation=args.attn_implementation,
             lora=False,
         )
-        model = dllm.utils.get_model(model_args=model_args)
+        model = memdlm.models.get_model(model_args=model_args)
         tokenizer_model_id = model_name_or_path
 
     model.eval()
@@ -182,7 +183,7 @@ def _load_single_model(model_name_or_path, adapter_path, base_override, args, ac
         model = model.to(args.device)
         device = torch.device(args.device)
 
-    tokenizer = dllm.utils.get_tokenizer(
+    tokenizer = memdlm.models.get_tokenizer(
         SimpleNamespace(model_name_or_path=tokenizer_model_id, model=model)
     )
     return model, tokenizer, device

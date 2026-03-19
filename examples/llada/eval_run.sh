@@ -18,7 +18,7 @@ max_new_tokens=16
 steps=16
 block_size=16
 cfg=0.0
-metadata=""
+metadata='{"max_seq_lengths":"1k"}'
 extra_model_args=""
 
 while [[ $# -gt 0 ]]; do
@@ -72,7 +72,7 @@ fi
 #   bash examples/llada/eval_run.sh --metadata '{"max_seq_lengths":"4k"}' --max_length 8192 --extra_model_args "mem_enabled=True"
 
 accelerate launch --num_processes "${num_gpu}" memdlm/eval/llada.py \
-  --tasks babilong \
+  --tasks babilong_longctx \
   --model llada \
   --num_fewshot 2 \
   --model_args "${model_args}" \

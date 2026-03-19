@@ -24,6 +24,7 @@ from lm_eval.api.registry import register_model
 from lm_eval.models.utils import get_dtype
 
 import dllm
+import memdlm.models
 from dllm.core.samplers import MDLMSampler, MDLMSamplerConfig
 from dllm.core.schedulers import LinearAlphaScheduler
 from memdlm.memory import ParametricMemory, MemoryConfig
@@ -210,7 +211,7 @@ class LLaDAEvalHarness(LM):
                 load_in_4bit=load_in_4bit,
                 attn_implementation=attn_implementation,
             )
-            self.model = dllm.utils.get_model(model_args=model_args)
+            self.model = memdlm.models.get_model(model_args=model_args)
             self.model = PeftModel.from_pretrained(
                 self.model, adapter_model_name_or_path
             )
@@ -222,7 +223,7 @@ class LLaDAEvalHarness(LM):
                 load_in_4bit=load_in_4bit,
                 attn_implementation=attn_implementation,
             )
-            self.model = dllm.utils.get_model(model_args=model_args)
+            self.model = memdlm.models.get_model(model_args=model_args)
             tokenizer_model_id = pretrained
         self.model.eval()
 
@@ -235,7 +236,7 @@ class LLaDAEvalHarness(LM):
             self.device = torch.device(device)
             self.accelerator = None
 
-        self.tokenizer = dllm.utils.get_tokenizer(
+        self.tokenizer = memdlm.models.get_tokenizer(
             SimpleNamespace(model_name_or_path=tokenizer_model_id, model=self.model)
         )
 
