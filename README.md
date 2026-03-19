@@ -48,6 +48,18 @@ pip install -e "lm-evaluation-harness[ruler,longbench]"
 ```
 
 
+## Data Preprocessing
+
+Preprocess datasets before training (tokenize and cache to disk):
+
+```bash
+# see examples/llada/data_process.sh for full script
+bash examples/llada/data_process.sh
+```
+
+This generates preprocessed data under `data/sft/`. Training scripts use `--load_preprocessed_data True` to load from these cached files.
+
+
 ## Quick Start: Training
 
 MemDLM training extends standard MDLM SFT with `--mem_enabled True` and related hyperparameters.
