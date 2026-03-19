@@ -1,6 +1,6 @@
 MODEL_PATH="inclusionAI/LLaDA-MoE-7B-A1B-Base"
 
-python -c "import memdlm; from dllm.tools.preprocess_sft_dataset import main; main()" -- \
+python -c "import memdlm; from dllm.tools.preprocess_sft_dataset import main; main()" \
     --model_name_or_path $MODEL_PATH \
     --sft_map_fn_path "dllm.utils.default_sft_map_fn" \
     --dataset_args "Yukang/LongAlpaca-12k" \

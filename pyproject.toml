@@ -8,7 +8,7 @@ include = ["memdlm*"]
 [project]
 name = "memdlm"
 version = "0.1.0"
-description = "MemDLM: Memory-Enhanced Diffusion Language Model (built on dLLM)"
+description = "MemDLM: Memory-Enhanced Diffusion Language Model"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

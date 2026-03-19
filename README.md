@@ -64,7 +64,9 @@ This generates preprocessed data under `data/sft/`. Training scripts use `--load
 
 MemDLM training extends standard MDLM SFT with `--mem_enabled True` and related hyperparameters.
 
-> **Note:** For models like [`LLaDA-MoE-7B-A1B-Base`](https://huggingface.co/inclusionAI/LLaDA-MoE-7B-A1B-Base), set `"model_type"` to `"lladamoe"` in the checkpoint's `config.json` before running.
+> **Note:** Before running, set `"model_type"` in the checkpoint's `config.json`:
+> - [`LLaDA-MoE-7B-A1B-Base`](https://huggingface.co/inclusionAI/LLaDA-MoE-7B-A1B-Base): set to `"lladamoe"`
+> - [`LLaDA2.1-mini`](https://huggingface.co/ML-GSAI/LLaDA2.1-mini): set to `"llada2_moe_21"`
 
 ### LLaDA
 
