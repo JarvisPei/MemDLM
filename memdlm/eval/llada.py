@@ -41,7 +41,7 @@ class LLaDAEvalConfig(MDLMSamplerConfig):
     adapter_model_name_or_path: str | None = None
     base_model_name_or_path: str | None = None
     dtype: str | torch.dtype = "auto"
-    load_in_4bit: bool = False
+    load_in_4bit: bool = True
     attn_implementation: str | None = None
     batch_size: int = 32
     mc_num: int = 128
