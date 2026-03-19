@@ -101,6 +101,14 @@ accelerate launch \
 ```
 
 
+## Released Adapters
+
+| Adapter | Base Model | HuggingFace |
+|---------|-----------|-------------|
+| LLaDA-MoE-7B-A1B-Base-MemDLM | [inclusionAI/LLaDA-MoE-7B-A1B-Base](https://huggingface.co/inclusionAI/LLaDA-MoE-7B-A1B-Base) | [JarvisPei/LLaDA-MoE-7B-A1B-Base-MemDLM](https://huggingface.co/JarvisPei/LLaDA-MoE-7B-A1B-Base-MemDLM) |
+| LLaDA2.1-mini-MemDLM | [ML-GSAI/LLaDA2.1-mini](https://huggingface.co/ML-GSAI/LLaDA2.1-mini) | [JarvisPei/LLaDA2.1-mini-MemDLM](https://huggingface.co/JarvisPei/LLaDA2.1-mini-MemDLM) |
+
+
 ## Quick Start: Evaluation
 
 ### Standard evaluation (without inference-time memory)
@@ -108,14 +116,12 @@ accelerate launch \
 ```bash
 # BABILong (LLaDA)
 bash examples/llada/eval_run.sh \
-    --model_name_or_path YOUR_MODEL_PATH \
-    --adapter_model_name_or_path YOUR_ADAPTER_PATH \
+    --adapter_model_name_or_path JarvisPei/LLaDA-MoE-7B-A1B-Base-MemDLM \
     --num_gpu 4
 
 # BABILong with longer context (e.g. 2k)
 bash examples/llada/eval_run.sh \
-    --model_name_or_path YOUR_MODEL_PATH \
-    --adapter_model_name_or_path YOUR_ADAPTER_PATH \
+    --adapter_model_name_or_path JarvisPei/LLaDA-MoE-7B-A1B-Base-MemDLM \
     --num_gpu 4 \
     --metadata '{"max_seq_lengths":"2k"}'
 ```
@@ -127,20 +133,17 @@ Scripts in `examples/llada/mem/` and `examples/llada21/mem/` have memory enabled
 ```bash
 # BABILong with memory (LLaDA)
 bash examples/llada/mem/eval_run.sh \
-    --model_name_or_path YOUR_MODEL_PATH \
-    --adapter_model_name_or_path YOUR_ADAPTER_PATH \
+    --adapter_model_name_or_path JarvisPei/LLaDA-MoE-7B-A1B-Base-MemDLM \
     --num_gpu 4
 
 # RULER with memory (LLaDA)
 bash examples/llada/mem/eval_ruler.sh \
-    --model_name_or_path YOUR_MODEL_PATH \
-    --adapter_model_name_or_path YOUR_ADAPTER_PATH \
+    --adapter_model_name_or_path JarvisPei/LLaDA-MoE-7B-A1B-Base-MemDLM \
     --num_gpu 4
 
 # RULER with memory (LLaDA2.1)
 bash examples/llada21/mem/eval_ruler.sh \
-    --model_name_or_path ML-GSAI/LLaDA2.1-mini \
-    --adapter_model_name_or_path YOUR_ADAPTER_PATH \
+    --adapter_model_name_or_path JarvisPei/LLaDA2.1-mini-MemDLM \
     --num_gpu 4
 ```
 
