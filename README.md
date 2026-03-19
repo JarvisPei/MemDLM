@@ -171,10 +171,6 @@ bash examples/llada/eval_ruler.sh \
 | `mem_sync_inner` | `True` (train) / `False` (eval) | Synchronize inner gradients across DDP/FSDP |
 
 
-## Model Checkpoints
-
-Coming soon.
-
 
 ## Repository Structure
 
