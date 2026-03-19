@@ -20,7 +20,7 @@ def get_tokenizer(model_args):
 
     model_name_or_path = getattr(model_args, "model_name_or_path")
     model_cfg = transformers.AutoConfig.from_pretrained(model_name_or_path)
-    model_cls = transformers.AutoModel._model_mapping.get(type(model_cfg))
+    model_cls = transformers.AutoModel._model_mapping.get(type(model_cfg), None)
     if model_cls is not None and issubclass(model_cls, LLaDA21MoeModelLM):
         tokenizer.add_special_tokens({"mask_token": "<|mask|>"})
         tokenizer.eot_token = "<|role_end|>"
