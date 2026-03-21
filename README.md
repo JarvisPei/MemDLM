@@ -3,7 +3,8 @@
 </p>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-Paper-red" alt="arXiv"></a>
+  <a href="assets/MemDLM.pdf"><img src="https://img.shields.io/badge/Paper-PDF-red" alt="Paper"></a>
+  <!-- <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-Paper-red" alt="arXiv"></a> -->
   <a href="https://huggingface.co/JarvisPei"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Models-yellow" alt="HuggingFace"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License"></a>
 </p>
