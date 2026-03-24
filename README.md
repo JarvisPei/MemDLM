@@ -3,8 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="assets/MemDLM.pdf"><img src="https://img.shields.io/badge/Paper-PDF-red" alt="Paper"></a>
-  <!-- <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-Paper-red" alt="arXiv"></a> -->
+  <a href="https://arxiv.org/abs/2603.22241"><img src="https://img.shields.io/badge/arXiv-2603.22241-red" alt="arXiv"></a>
   <a href="https://huggingface.co/JarvisPei"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Models-yellow" alt="HuggingFace"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License"></a>
 </p>
@@ -217,6 +216,6 @@ If you find this work useful, please cite our paper:
     title   = {MemDLM: Memory-Enhanced DLM Training},
     author  = {Zehua Pei and Hui-Ling Zhen and Weizhe Lin and Sinno Jialin Pan and Yunhe Wang and Mingxuan Yuan and Bei Yu},
     year    = {2026},
-    journal = {arXiv preprint arXiv:XXXX.XXXXX},
+    journal = {arXiv preprint arXiv:2603.22241},
 }
 ```
