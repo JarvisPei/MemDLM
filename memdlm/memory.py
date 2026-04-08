@@ -131,7 +131,15 @@ class InnerLoRAManager:
     def _resolve_layers(self, model: nn.Module) -> Iterable[nn.Module]:
         for attr in ("module", "model", "base_model", "model"):
             model = getattr(model, attr, model)
-        for path in ("model.layers", "layers"):
+        # Support multiple backbone layouts:
+        # - LLaMA/Qwen style: model.layers / layers
+        # - LLaDA style: model.transformer.blocks / transformer.blocks
+        for path in (
+            "model.layers",
+            "layers",
+            "model.transformer.blocks",
+            "transformer.blocks",
+        ):
             current = model
             ok = True
             for part in path.split("."):
